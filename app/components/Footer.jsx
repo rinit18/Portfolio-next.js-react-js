@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="flex items-center justify-center gap-4 mb-4">
           {/* Facebook link */}
           <a 
-            href="https://www.facebook.com/" 
+            href="https://www.facebook.com/robbert.corupt.1/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="hover:text-blue-500 transition duration-300"
@@ -60,7 +60,7 @@ const Footer = () => {
 
           {/* LinkedIn link */}
           <a 
-            href="https://www.linkedin.com/" 
+            href="www.linkedin.com/in/rinit-bhowmick"
             target="_blank" 
             rel="noopener noreferrer" 
             className="hover:text-blue-700 transition duration-300"
