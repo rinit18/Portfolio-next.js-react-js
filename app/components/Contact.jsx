@@ -42,7 +42,8 @@ const Contact = () => {
     whileInView={{opacity: 1}}
     transition={{ duration: 1 }}
       id="contact"
-      className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/footer-bg-color.png')] bg-no-repeat bg-center bg-[length:90%_auto]"
+      className="w-full px-6 md:px-[12%] py-10 overflow-hidden bg-[url('/footer-bg-color.png')] 
+      bg-no-repeat bg-center bg-[length:90%_auto]"
     >
       {/* Heading */}
       <motion.h4 
@@ -68,62 +69,66 @@ const Contact = () => {
 
       {/* Contact Form */}
       <motion.form 
-      initial={{opacity: 0}}
-      whileInView={{opacity: 1}}
-      transition={{ duration: 0.5, delay: 0.9 }}
-      onSubmit={onSubmit} className="max-w-2xl mx-auto">
-        {/* Input Fields */}
-        <div className="grid grid-cols-auto gap-6 mt-10 mb-8">
-          {/* Name Input */}
-          <motion.input
-          initial={{x: -50, opacity: 0}}
-          whileInView={{x: 0, opacity: 1}}
-          transition={{ duration: 0.6, delay: 1.1 }}
-            type="text"
-            placeholder="Enter your name"
-            required
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
-            name="name"
-          />
-          {/* Email Input */}
-          <motion.input
-          initial={{x: 50, opacity: 0}}
-          whileInView={{x: 0, opacity: 1}}
-          transition={{ duration: 0.6, delay: 1.2 }}
-            type="email"
-            placeholder="Enter your email"
-            required
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
-            name="email"
-          />
-        </div>
+  initial={{opacity: 0}}
+  whileInView={{opacity: 1}}
+  transition={{ duration: 0.5, delay: 0.9 }}
+  onSubmit={onSubmit} 
+  className="max-w-2xl w-full mx-auto px-4"
+>
+  {/* Input Fields */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mb-8">
+    {/* Name Input */}
+    <motion.input
+      initial={{x: -50, opacity: 0}}
+      whileInView={{x: 0, opacity: 1}}
+      transition={{ duration: 0.6, delay: 1.1 }}
+      type="text"
+      placeholder="Enter your name"
+      required
+      className="w-full p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+      name="name"
+    />
+    
+    {/* Email Input */}
+    <motion.input
+      initial={{x: 50, opacity: 0}}
+      whileInView={{x: 0, opacity: 1}}
+      transition={{ duration: 0.6, delay: 1.2 }}
+      type="email"
+      placeholder="Enter your email"
+      required
+      className="w-full p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+      name="email"
+    />
+  </div>
 
-        {/* Message Textarea */}
-        <motion.textarea
-         initial={{y: 100, opacity: 0}}
-         whileInView={{x: 0, opacity: 1}}
-         transition={{ duration: 0.6, delay: 1.3 }}
-          rows="6"
-          placeholder="Enter your message"
-          required
-          className="w-full p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6"
-          name="message"
-        ></motion.textarea>
+  {/* Message Textarea */}
+  <motion.textarea
+    initial={{y: 100, opacity: 0}}
+    whileInView={{y: 0, opacity: 1}}
+    transition={{ duration: 0.6, delay: 1.3 }}
+    rows="6"
+    placeholder="Enter your message"
+    required
+    className="w-full p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6"
+    name="message"
+  ></motion.textarea>
 
-        {/* Submit Button */}
-        <motion.button
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-          type="submit"
-          className="flex items-center gap-2 px-8 py-3 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 font-Ovo"
-        >
-          Submit now
-          <Image src={assets.right_arrow_white} alt="Arrow icon" className="w-4" />
-        </motion.button>
+  {/* Submit Button */}
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    transition={{ duration: 0.3 }}
+    type="submit"
+    className="flex items-center justify-center gap-2 px-4 md:px-8 py-3 bg-black/80 text-white rounded-full w-half md:w-auto mx-auto 
+    hover:bg-black duration-500 font-Ovo"
+  >
+    Submit now
+    <Image src={assets.right_arrow_white} alt="Arrow icon" className="w-4" />
+  </motion.button>
 
-        {/* Result Message */}
-        <p className="mt-4">{result}</p>
-      </motion.form>
+  {/* Result Message */}
+  <p className="mt-4 text-center md:text-left">{result}</p>
+</motion.form>
     </motion.div>
   );
 };
