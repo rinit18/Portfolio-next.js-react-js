@@ -348,9 +348,9 @@ Tests validate authentication and patient workflows through the API Gateway.`,
             customMetric: 'custom.redis.cache.miss',
 
             future: [
+                'Kubernetes Implementation',
                 'Distributed tracing using OpenTelemetry',
                 'Service discovery integration',
-                'Load testing and performance benchmarking',
             ],
         },
     },
