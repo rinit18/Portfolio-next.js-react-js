@@ -1,142 +1,97 @@
-// Import necessary modules and assets
-import { assets } from '@/assets/assets'; // Import asset paths
-import Image from 'next/image'; // Optimized Image component from Next.js
-import React, { useEffect, useRef, useState } from 'react'; // React and its hooks
+import { assets } from '@/assets/assets';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import { NAV_LINKS } from '@/config';
 
 const Navbar = () => {
-  // State to track whether the page is scrolled
   const [isScroll, setIsScroll] = useState(false);
-
-  // Reference for the side menu (mobile menu)
   const sideMenuRef = useRef();
 
-  // Function to open the side menu
   const openMenu = () => {
     sideMenuRef.current.style.transform = 'translateX(-16rem)';
   };
 
-  // Function to close the side menu
   const closeMenu = () => {
     sideMenuRef.current.style.transform = 'translateX(16rem)';
   };
 
-  // Effect to toggle `isScroll` state based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      setIsScroll(window.scrollY > 50); // Set true if scrolled more than 50px
+      setIsScroll(window.scrollY > 50);
     };
-
-    window.addEventListener('scroll', handleScroll); // Attach scroll event listener
-    return () => window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      {/* Background for the navbar */}
-      <div className="fixed top-0 right-0 w-full  -z-10 translate-y-[-90%] rounded-b-2xl overflow-hidden">
-        <Image src={assets.header_bg_color} alt="Header Background" className="w-auto h-auto" />
-      </div>
-
       {/* Navbar */}
       <nav
-        className={`w-full fixed px-5 lg:px-5 xl:px-8  py-4 flex 
-        justify-between items-center z-50  ${
-          isScroll ? 'bg-white bg-opacity-50 backdrop-blur-lg shadow-sm text-gray' : ''
-        }`}
+        className={`w-full fixed px-5 lg:px-5 xl:px-8 py-4 flex
+        justify-between items-center z-50 transition-all duration-500 ${isScroll
+            ? 'bg-black/60 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
+            : 'bg-transparent'
+          }`}
       >
         {/* Logo */}
         <a href="#top">
-          <Image src={assets.logo} alt="Logo" className="w-28 cursor-pointer mr-14" />
+          <Image src={assets.logo_dark} alt="Logo" className="w-28 cursor-pointer mr-14 opacity-90" />
         </a>
 
         {/* Desktop menu */}
-        <ul
-          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full border border-black px-12 py-3 bg-gray-100
-          ${isScroll ? '' : 'bg-white shadow-sm bg-opacity-50'}`}
-        >
-          <li>
-            <a className="font-Ovo" href="#top">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#about">
-              About me
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#work">
-              My Work
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#contact">
-              Contact me
-            </a>
-          </li>
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full
+          border border-white/10 px-12 py-3 bg-white/5 backdrop-blur-sm">
+          {NAV_LINKS.map(({ label, href }) => (
+            <li key={label}>
+              <a
+                className="font-Ovo text-slate-300 hover:text-purple-300 transition-colors duration-300 text-sm"
+                href={href}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
 
-        {/* Right section with theme toggle and buttons */}
+        {/* Right: Contact CTA */}
         <div className="flex items-center gap-4">
-        
-
-          {/* Contact button for desktop */}
           <a
             href="#contact"
-            className="hidden lg:flex items-center gap-3 px-10 py-2.5 bg-gray 
-          text-black rounded-full border border-black hover:bg-gray-100 hover:text-black-300 ml-4 font-Ovo"
+            className="hidden lg:flex items-center gap-2 px-8 py-2
+            text-white bg-gradient-to-r from-purple-700 to-indigo-700 rounded-full
+            hover:from-purple-600 hover:to-indigo-600 hover:shadow-lg hover:shadow-purple-900/40
+            hover:scale-105 ml-4 font-Ovo text-sm transition-all duration-300 border border-purple-500/30"
           >
-            Contact <Image src={assets.arrow_icon} alt="Arrow Icon" className="w-3" />
+            Contact
+            <Image src={assets.arrow_icon_dark} alt="Arrow" className="w-3 brightness-200" />
           </a>
 
-          {/* Menu button for mobile */}
+          {/* Mobile menu toggle */}
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} alt="Menu Icon" className="w-6" />
+            <Image src={assets.menu_white} alt="Menu" className="w-6 opacity-80" />
           </button>
         </div>
 
         {/* Mobile side menu */}
         <ul
           ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 
-          h-screen bg-rose-50 transition duration-500"
+          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50
+          h-screen bg-black/90 backdrop-blur-xl border-l border-white/5 transition duration-500"
         >
-          {/* Close button for side menu */}
           <div className="absolute top-5 right-5" onClick={closeMenu}>
-            <Image src={assets.close_black} alt="Close Icon" className="w-5 cursor-pointer" />
+            <Image src={assets.close_white} alt="Close" className="w-5 cursor-pointer opacity-70" />
           </div>
-
-          {/* Mobile menu links */}
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#top">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#about">
-              About me
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#work">
-              My Work
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#contact">
-              Contact me
-            </a>
-          </li>
+          {NAV_LINKS.map(({ label, href }) => (
+            <li key={label}>
+              <a
+                className="font-Ovo text-slate-300 hover:text-purple-300 transition-colors duration-300"
+                onClick={closeMenu}
+                href={href}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </>

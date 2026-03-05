@@ -84,40 +84,63 @@ export const assets = {
 
 export const workData = [
     {
-        title: 'Frontend project',
-        description: 'protfolio website',
+        title: 'Microservices Platform',
+        description: 'Java · Spring Boot · Kafka · PostgreSQL',
         bgImage: '/work-1.png',
+        github: 'https://github.com/rinit18',
+        tags: ['Java 17', 'Spring Boot', 'Kafka', 'PostgreSQL', 'Docker'],
     },
     {
-        title: 'Geo based app',
-        description: 'Mobile App',
+        title: 'gRPC Service Mesh',
+        description: 'gRPC · Redis · Prometheus · Grafana',
         bgImage: '/work-2.png',
+        github: 'https://github.com/rinit18',
+        tags: ['gRPC', 'Redis', 'Prometheus', 'Grafana'],
     },
     {
-        title: 'Photography site',
-        description: 'Web Design',
+        title: 'Event-Driven System',
+        description: 'Kafka · Spring Boot · Docker · Kubernetes',
         bgImage: '/work-3.png',
+        github: 'https://github.com/rinit18',
+        tags: ['Kafka', 'Spring Boot', 'Docker', 'K8s'],
     },
     {
-        title: 'UI/UX designing',
-        description: 'UI/UX Design',
+        title: 'Portfolio Website',
+        description: 'Next.js · React · TailwindCSS',
         bgImage: '/work-4.png',
+        github: 'https://github.com/rinit18',
+        tags: ['Next.js', 'React', 'TailwindCSS'],
     },
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
+    { icon: assets.web_icon, title: 'Backend Development', description: 'Building scalable, production-grade REST APIs and microservices using Java 17, Spring Boot, and PostgreSQL with clean architecture patterns.', link: '' },
+    { icon: assets.mobile_icon, title: 'Event-Driven Architecture', description: 'Designing and implementing event-driven systems using Apache Kafka for real-time data streaming and distributed messaging pipelines.', link: '' },
+    { icon: assets.ui_icon, title: 'System Design & DevOps', description: 'Containerizing apps with Docker, orchestrating with Kubernetes, and setting up observability stacks using Prometheus and Grafana.', link: '' },
+    { icon: assets.graphics_icon, title: 'gRPC & API Design', description: 'Designing high-performance inter-service communication with gRPC, RESTful API design, and Redis caching for optimized backends.', link: '' },
 ]
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js, java, springboot, python' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Bsc in IT (AI), MCA' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 4 projects' }
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Core Stack', description: 'Java 17, Spring Boot, Kafka, PostgreSQL, Redis, gRPC, Docker' },
+    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'B.Sc. in IT (AI), MCA — Continuously learning backend engineering' },
+    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built 4+ production-style backend systems and microservice platforms' }
 ];
 
 export const toolsData = [
     assets.vscode, assets.intellij, assets.mongodb, assets.eclipse, assets.git
+];
+
+export const techStack = [
+    { name: 'Java 17', color: '#f89820' },
+    { name: 'Spring Boot', color: '#6db33f' },
+    { name: 'Apache Kafka', color: '#231f20' },
+    { name: 'PostgreSQL', color: '#336791' },
+    { name: 'Redis', color: '#dc382d' },
+    { name: 'gRPC', color: '#244c5a' },
+    { name: 'Docker', color: '#2496ed' },
+    { name: 'Kubernetes', color: '#326ce5' },
+    { name: 'Prometheus', color: '#e6522c' },
+    { name: 'Grafana', color: '#f46800' },
+    { name: 'React', color: '#61dafb' },
+    { name: 'Next.js', color: '#000000' },
 ];

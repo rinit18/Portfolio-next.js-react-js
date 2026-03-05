@@ -2,40 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ──────────────────────────────────────────────────────────────
+   BASE
+────────────────────────────────────────────────────────────── */
 * {
-  font-family: Outfit;
+  font-family: Outfit, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   GLOBAL BACKGROUND
+   Deep, rich dark background with a subtle purple-indigo mesh
+────────────────────────────────────────────────────────────── */
+body {
+  background-color: #0a0714;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(109, 40, 217, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(79, 70, 229, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(139, 92, 246, 0.07) 0%, transparent 70%);
+  background-attachment: fixed;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   TYPEWRITER
+────────────────────────────────────────────────────────────── */
 .typewriter-text {
   display: inline-block;
-  border-right: 2px solid black; /* Cursor effect */
+  border-right: 2px solid #a78bfa;
   white-space: nowrap;
   overflow: hidden;
   animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: black; }
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #a78bfa;
+  }
 }
 
+/* ──────────────────────────────────────────────────────────────
+   HAND WAVE
+────────────────────────────────────────────────────────────── */
 .hand-icon {
   animation: wave 2s infinite;
   transform-origin: 70% 70%;
 }
 
 @keyframes wave {
-  0% { transform: rotate(0.0deg); }
-  10% { transform: rotate(14.0deg); }
-  20% { transform: rotate(-8.0deg); }
-  30% { transform: rotate(14.0deg); }
-  40% { transform: rotate(-4.0deg); }
-  50% { transform: rotate(10.0deg); }
-  60% { transform: rotate(0.0deg); }  /* reset for the next loop */
-  100% { transform: rotate(0.0deg); }
+  0% {
+    transform: rotate(0.0deg);
+  }
+
+  10% {
+    transform: rotate(14.0deg);
+  }
+
+  20% {
+    transform: rotate(-8.0deg);
+  }
+
+  30% {
+    transform: rotate(14.0deg);
+  }
+
+  40% {
+    transform: rotate(-4.0deg);
+  }
+
+  50% {
+    transform: rotate(10.0deg);
+  }
+
+  60% {
+    transform: rotate(0.0deg);
+  }
+
+  100% {
+    transform: rotate(0.0deg);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   GLASS CARD UTILITY
+────────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SCROLLBAR
+────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0714;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d28d9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
 }
