@@ -47,7 +47,7 @@ export const LINKS = {
     linkedin: 'https://www.linkedin.com/in/rinit-bhowmick',
     facebook: 'https://www.facebook.com/robbert.corupt.1/',
     instagram: 'https://www.instagram.com/',
-    resume: '/RinitBhowmick_Backend_CV.pdf',
+    resume: '/Rinit_Bhowmick_Backend_Engineer_Java_SpringBoot.pdf',
 
     web3formsKey: 'e82078ef-6a04-4fa3-86fa-e8435210a780',
 };
